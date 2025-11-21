@@ -3,12 +3,13 @@
 # This program is licensed under the Apache License 2.0.
 # See LICENSE or go to <https://opensource.org/licenses/Apache-2.0> for full license details.
 
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st # frontend
 import torch
 from backend.pytorch import DET_ARCHS, RECO_ARCHS, forward_image, load_predictor
+
+from skimage.transform import resize as sk_resize
 
 from doctr.io import DocumentFile
 from doctr.utils.visualization import visualize_page
@@ -98,7 +99,12 @@ def main(det_archs, reco_archs):
                 # Forward the image to the model
                 seg_map = forward_image(predictor, page, forward_device)
                 seg_map = np.squeeze(seg_map)
-                seg_map = cv2.resize(seg_map, (page.shape[1], page.shape[0]), interpolation=cv2.INTER_LINEAR)
+                seg_map = sk_resize(
+                    seg_map,
+                    (page.shape[0], page.shape[1]),
+                    preserve_range=True,
+                    anti_aliasing=True
+                )
 
                 # Plot the raw heatmap
                 fig, ax = plt.subplots()
