@@ -1,18 +1,9 @@
 scikit-image
-opencv-python-headless==4.10.0.84
 numpy==1.26.4
 Pillow
 matplotlib
 streamlit
-
-# Google Translate
 googletrans==4.0.0-rc1
-
-# PDF creation
 fpdf2
-
-# PyTorch (CPU)
 torch
-
-# Doctr OCR (PyTorch backend, no OpenCV extras)
--e git+https://github.com/mindee/doctr.git#egg=python-doctr[pytorch]
+python-doctr==0.7.0
