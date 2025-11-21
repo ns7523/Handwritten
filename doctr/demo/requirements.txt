@@ -1,9 +1,22 @@
-scikit-image
-numpy==1.26.4
+# Core dependencies
+numpy
 Pillow
 matplotlib
 streamlit
+scikit-image
+
+# OpenCV (headless only)
+opencv-python-headless==4.10.0.84
+# force-remove GUI version
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
+
+# Google Translate
 googletrans==4.0.0-rc1
+
+# PDF creation
 fpdf2
-torch
-python-doctr==0.7.0
+
+# Doctr OCR (CPU only)
+-e git+https://github.com/mindee/doctr.git#egg=python-doctr[viz]
