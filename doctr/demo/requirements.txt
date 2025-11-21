@@ -1,7 +1,15 @@
 scikit-image
-opencv-python-headless==4.10.0.84   # keep only if doctr internally uses cv2
+opencv-python-headless==4.10.0.84
 numpy
 Pillow
 matplotlib
 streamlit
+
+# Google Translate
+googletrans==4.0.0-rc1
+
+# PDF creation
+fpdf2
+
+# Doctr OCR
 -e git+https://github.com/mindee/doctr.git#egg=python-doctr[viz]
